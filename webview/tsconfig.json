@@ -1,0 +1,10 @@
+{
+  // Type-checks the graph webview (runs in a browser, not Node).
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": [],
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}

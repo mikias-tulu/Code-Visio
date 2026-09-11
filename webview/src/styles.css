@@ -1,0 +1,100 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--vscode-foreground);
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.stats {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--vscode-descriptionForeground);
+  font-size: 11px;
+}
+
+button {
+  padding: 2px 8px;
+  border: none;
+  border-radius: 2px;
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--vscode-button-secondaryHoverBackground);
+}
+
+button:focus-visible {
+  outline: 1px solid var(--vscode-focusBorder);
+  outline-offset: 1px;
+}
+
+.canvas {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.graph {
+  position: absolute;
+  inset: 0;
+}
+
+.inspector {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 8px;
+  border-top: 1px solid var(--vscode-panel-border);
+  font-size: 12px;
+}
+
+.inspector .kind {
+  color: var(--vscode-descriptionForeground);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.inspector .name {
+  font-weight: 600;
+}
+
+.inspector .signature {
+  font-family: var(--vscode-editor-font-family);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.inspector .id {
+  color: var(--vscode-descriptionForeground);
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
