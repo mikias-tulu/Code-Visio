@@ -1,0 +1,16 @@
+{
+  // Integration tests run inside a real VS Code instance via @vscode/test-cli, which loads
+  // compiled CommonJS from out/.
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "verbatimModuleSyntax": false,
+    "types": ["mocha", "node", "vscode"],
+    "noEmit": false,
+    "sourceMap": true,
+    "rootDir": ".",
+    "outDir": "../../out/test/integration"
+  },
+  "include": ["."]
+}
