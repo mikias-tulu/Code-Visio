@@ -1,7 +1,9 @@
 # Ship only the bundles and assets; everything else stays out of the .vsix.
+# vsce lets any "!" include win over excludes, so list the shipped file types explicitly
+# (this keeps dev-build source maps out).
 **
-!dist/**
-dist/**/*.map
+!dist/**/*.js
+!dist/**/*.css
 !media/**
 !package.json
 !README.md
