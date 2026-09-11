@@ -1,0 +1,116 @@
+{
+  "name": "code-visio",
+  "displayName": "Code Visio",
+  "description": "Interactive graph of your code: files, classes, functions and methods, with AI explanations.",
+  "version": "0.0.1",
+  "publisher": "mikias-tulu",
+  "private": true,
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "graph",
+    "call graph",
+    "dependency graph",
+    "code map",
+    "architecture"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codeVisio",
+          "title": "Code Visio",
+          "icon": "media/activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "codeVisio": [
+        {
+          "type": "webview",
+          "id": "codeVisio.graphView",
+          "name": "Graph"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "codeVisio.showGraph",
+        "title": "Show Graph",
+        "category": "Code Visio",
+        "icon": "$(type-hierarchy)"
+      },
+      {
+        "command": "codeVisio.openGraphPanel",
+        "title": "Open Graph in Editor Tab",
+        "category": "Code Visio",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "codeVisio.refresh",
+        "title": "Refresh Graph",
+        "category": "Code Visio",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "codeVisio.refresh",
+          "when": "view == codeVisio.graphView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "codeVisio.openGraphPanel",
+          "when": "view == codeVisio.graphView",
+          "group": "navigation@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "node esbuild.mjs --production",
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "watch:tsc": "tsc -p . --watch",
+    "watch:tsc:webview": "tsc -p webview --watch",
+    "typecheck": "tsc -p . && tsc -p webview",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "pretest:integration": "node esbuild.mjs && tsc -p test/integration",
+    "test:integration": "vscode-test",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build",
+    "package": "vsce package --no-dependencies"
+  },
+  "dependencies": {
+    "cytoscape": "^3.34.3",
+    "cytoscape-fcose": "^2.2.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/cytoscape-fcose": "^2.2.5",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/vscode": "1.100.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.10.0",
+    "globals": "^17.12.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.70.0",
+    "vitest": "^4.1.11"
+  }
+}

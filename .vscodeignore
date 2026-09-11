@@ -1,0 +1,9 @@
+# Ship only the bundles and assets; everything else stays out of the .vsix.
+**
+!dist/**
+dist/**/*.map
+!media/**
+!package.json
+!README.md
+!CHANGELOG.md
+!LICENSE*
